@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <title>reservation admin</title>
+</head>
+<body>
+  
+    <section class="hero is-success is-small">      
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title is-1 has-text-left">Réservation</h1>
+              <div class="field has-addons">
+              </div>
+              <section class="hero is-white">
+                <div class="hero-body">
+                  <div class="table-container">
+                    <table class="table is-fullwidth has-background-grey-light">
+                      <tbody>
+                        <tr>
+                          <th class="is-light">Nom</th>
+                          <th class="is-light">Prenom</th>
+                          <th class="is-light">Numéro de téléphone</th>
+                          <th class="is-light">Email</th>
+                          <th class="is-light">Capacité</th>
+                          <th class="is-light">Salle</th>
+                          <th class="is-light">Date</th>
+                          <th class="is-light">Heure</th>
+                          <th class="is-light">Message</th>
+                          <th class="is-light">Modifier</th>
+                          <th class="is-light">Supprimer</th>
+                        </tr>
+                        <% reservations.forEach ((rese) => { %>
+                        <tr> 
+                        <form action="/admin/reservation/change/<%= rese.reserve_id %>" method="post">
+                          <td><input type="text" name="nom" class="input"  value="<%= rese.nom %> "></td>
+                          <td><input type="text" name="prenom" class="input"  value="<%= rese.prenom %> "></td>
+                          <td><input type="text" name="phone" class="input"  value="<%= rese.phone %> "></td>
+                          <td><input type="email" name="email" class="input"  value="<%= rese.email %>"></td>
+                          <td>  
+                             <select name="capacite" class="input" >
+                              <% if (rese.capacite == 2) { %>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <% } else if (rese.capacite == 3) { %>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="2">2</option>
+                              <% } else if (rese.capacite == 4) { %>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <% } else if (rese.capacite == 5) { %>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <% } else if (rese.capacite == 6) { %>
+                              <option value="6">6</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <% } %>
+                             </select>
+                            </td>
+                            <td> 
+                               <select name="salle" class="input" >
+                                <% if (rese.salle === 'oui') { %>
+                                <option value="oui">oui</option>
+                                <option value="non">non</option>
+                                <% }else { %>
+                                <option value="non">non</option>
+                                <option value="oui">oui</option>
+                                 <% } %>
+                                </select>
+                            </td>
+                          <td><input type="date" name="date" class="input has-background-grey-light"  value="<%= rese.date %>"></td>
+                          <td><input type="time" name="heure" class="input has-background-grey-light"  value="<%= rese.heure %>"></td>
+                          <td><input type="text" name="message" class="input"  value="<%= rese.message %>"></td>
+
+                          
+                          <th><input type="submit" value="modifier" class="button is-warning"></th>
+                          </form>
+                          </form>
+                          <form action="/admin/reservation/delete/<%= rese.nom %>" method="post">
+                          <th><input type="submit" value="supprimer" class="button is-danger"></th> 
+                          </form>
+                        </tr>
+                        <% }); %>
+                      </tbody>
+                    </table>
+                      <table class="table is-fullwidth has-background-grey-light">
+                      <tbody>
+                        <tr>
+
+                            <th class="is-light">Nom</th>
+                            <th class="is-light">Prenom</th>
+                            <th class="is-light">Numéro de téléphone</th>
+                            <th class="is-light">Email</th>
+                            <th class="is-light">Capacité</th>
+                            <th class="is-light">Salle</th>
+                            <th class="is-light">Date</th>
+                            <th class="is-light">Heure</th>
+                            <th class="is-light">Message</th>
+                          <th class="is-light">Ajouter</th>
+
+                        </tr>
+                        <tr> 
+                      <form action="/admin/reservation/add" method="post">
+                          <td><input type="text" name="nom" class="input"  value=""></td>
+                          <td><input type="text" name="prenom" class="input"  value=""></td>
+                          <td><input type="text" name="phone" class="input"  value=""></td>
+                          <td><input type="email" name="email" class="input"  value=""></td>
+                          <td>  
+                            <select name="capacite" class="input" >
+                           
+                             <option value="2">2</option>
+                             <option value="3">3</option>
+                             <option value="4">4</option>
+                             <option value="5">5</option>
+                             <option value="6">6</option>
+                         
+                            </select>
+                           </td>
+                          <td> 
+                            <select name="salle" class="input" >
+                            <option value="oui">oui</option>
+                            <option value="non">non</option>
+                            </select>
+                          </td>
+                          <td><input type="date" name="date" class="input has-background-grey-light"  value=""></td>
+                          <td><input type="time" name="heure" class="input has-background-grey-light"  value=""></td>
+                          <td><input type="text" name="message" class="input"  value=""></td>
+                          <th><input type="submit" value="Ajouter" class="button is-info"></th> 
+                      </form>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+      </section>
+
+      
+      <%- include ("../partials/dashbord.ejs") %>
+</body>
+</html>

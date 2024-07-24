@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <title>table admin</title>
+</head>
+<body>
+    <section class="hero is-success is-small">      
+        <div class="hero-body">
+          <div class="container has-text-centered">
+          <h1 class="title is-1 has-text-left">Table</h1>
+        <section class="hero is-white">
+          <div class="hero-body">
+            <div class="table-container">
+              <table class="table is-fullwidth has-background-grey-light">
+                <tbody>
+                  <tr>
+                    <th class="is-light">Numéro de la table</th>
+                    <th class="is-light">Capacité</th>
+                    <th class="is-light">Disponibilité</th>
+                  </tr>
+                  <% tables.forEach((tab) => { %>
+                  <tr>
+                    <td><input type="text" name="num_tabl" class="input"  value="<%= tab.num_tabl %>"></td>
+                    <td><input type="text" name="capacite" class="input"  value="<%= tab.capacite %>"></td>
+                    <td>
+                    <%if( tab.disponible === 1) { %>
+                    <form action="/admin/table/<%= tab.table_id %>/disponible/1" method="post">
+                      <input type="submit" value="disponible" class="button is-success ">
+                    </form>
+                    <% }else { %>
+                      <form action="/admin/table/<%= tab.table_id %>/disponible/0" method="post">
+                       <input type="submit" value="indisponible" class="button is-danger ">
+                      </form>
+                      <% } %>
+                    </td>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+             </div>
+           </div>
+         </section>
+      </div>
+    </div>
+</section>
+
+
+<%- include ("../partials/dashbord.ejs") %>
+</body>
+</html>

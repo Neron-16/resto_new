@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.csss">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <title>Avis</title>
+</head>
+<body>
+     <%- include ("./partials/header") -%>
+    
+     <section class="section is-small has-background-white">
+      <h1 class="title has-text-info">Laissez un avis de votre expérience culinaire</h1>
+            <% resultat.forEach((rpd) => { %>
+              <div class="columns is-mobile">
+                  <div class="column">
+                      <div class="card">
+                          <div class="card-content">
+                          <div class="content">
+                          <h4><%= rpd.pseudo %></h4>
+                          <%= rpd.message %>
+                          </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <% }); %>
+              <form action="/ajout_commentaire" method="post">
+              <div class="field" >
+                  <label class="label has-text-danger">Nom</label>
+                  <div class="control">
+                    <input class="input" type="text" name="pseudo" placeholder="Mr Smith">
+                  </div>
+              </div> 
+              <div class="field">
+                <label class="label has-text-danger">Message</label>
+                  <div class="control">
+                    <input class="input" type="text" name="message" placeholder="Laisser un avis....">
+                  </div>
+              </div>
+              <div class="field">
+                  <p class="control">
+                    <input class="button is-success" type="submit" value="envoyer"> 
+                  </p>
+              </div>
+          </form>
+  </section>
+
+      <%- include ("./partials/footer") %>
+
+      <script src="./JS/index.js"></script>
+</body>
+</html>

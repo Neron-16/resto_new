@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <title>Reservation</title>
+</head>
+<body>
+
+    <%- include ("./partials/header") -%>
+
+    <section class="hero is-small has-background-primary-100 has-text-centered has-text-black-bis">
+       <div class="hero-body">
+          <div class="block">
+            Les demandes de réservations s'effectuent directement en remplissant le formulaire ci-dessous.
+            Une confirmation vous sera envoyée en retour par e-mail.
+          </div>
+          <div class="columns is-mobile is-centered">
+            <div class="column is-half ">
+              <form class="box " action="/confirme" method="post">
+                    <h6 class="subtitle is-6 ">Restaurant la Cale</h6>
+                    <div class="field">
+                        <div class="control">
+                            <div class="select">
+                              <select name="capacite">
+                                <option>Nomrbre de personne</option>
+                                <% tables.forEach(row => { %>
+                                  <% if (row.table_id !== 12) { %>
+                                    <option value="<%= row.table_id %>"><%= row.capacite %> personnes</option>
+                                  <% } %>
+                                <% }); %>
+                              </select>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="field">
+                      <div class="control">
+                        <input class="input has-background-grey-light has-text-black-bis" type="time" name="heure" placeholder="">
+                      </div>
+                    </div> 
+                    <div class="field">
+                          <div class="control">
+                            <input class="input has-background-grey-light has-text-black-bis" type="date" name="date" placeholder="">
+                          </div>
+                    </div> 
+                    
+                        <div class="field" >
+                            <label class="label">Nom</label>
+                            <div class="control">
+                              <input class="input" type="text" name="nom" placeholder="Mr Jone">
+                            </div>
+                        </div> 
+                        <div class="field" >
+                            <label class="label">Prenom</label>
+                            <div class="control">
+                              <input class="input" type="text" name="prenom" placeholder="Mr Smith">
+                            </div>
+                        </div> 
+                        <div class="label has-text-centered">Numéro de téléphone</div>
+                        <div class="field is-horizontal">
+                          <div class="field-body">
+                            <div class="field is-expanded">
+                              <div class="field has-addons">
+                                <p class="control">
+                                  <a class="button is-static">
+                                    +33
+                                  </a>
+                                </p>
+                                <p class="control is-expanded has-text-centered">
+                                  <input class="input" type="phone" name="phone" placeholder="Your phone number">
+                                </p>
+                              </div>
+                              <p class="help">Do not enter the first zero</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="field">
+                            <label class="label">Email</label>
+                            <div class="control">
+                                <input class="input is-success" type="email" name="email" placeholder="" value="alex@smith.com">
+                            </div>
+                        </div>
+                        <label class="label">Message</label>
+                        <div class="control">
+                        <textarea class="textarea"  name="message"  placeholder="Votre message"></textarea>
+                        </div>
+                        <br>
+                        <div class="field">
+                          <p class="control">
+                            <input class="button is-success" type="submit" value="Reserveration"> 
+                          </p>
+                      </div>
+                    </form>               
+            </div>
+          </div>   
+        </div>
+    </section>
+
+    <%- include ("./partials/info") -%>
+
+    <%- include ("./partials/footer.ejs") %>
+
+    <script src="./JS/index.js"></script>
+</body>
+</html>

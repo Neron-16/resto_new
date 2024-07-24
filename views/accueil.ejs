@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>accueil</title>
+</head>
+<body>
+  
+  <%- include ("./partials/header") -%>
+   
+    <section class="hero is-success is-halfheight has-text-centered background">
+        <div class="hero-body">
+          <div class="titre">
+            <p class="title has-text-light ti">Welcome to the </p><br>
+            <p class="title has-text-light ti-1">CALE RESTAURANT</p>
+            <p class="subtitle title has-text-light ti-2">The best fish cuisine restaurant in Algiers,<br>Book online or call(555)123-4567</p>
+            <div class="section">
+              <a href="/Reservation" class="button has-text-black-bis has-background-link-light">
+                Réserver une table 
+              </a>
+              <a href="/Privatisation" class="button has-text-black-bis has-background-link-light">
+                Privatiser la salle
+              </a>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="hero is-small has-background-white">
+        <div class="hero-body">
+            <div class="carousel-container">
+              <div class="carousel-images">
+              <img src="resto/istockphoto-2152018264-612x612.jpg" alt="Entrée">
+              <img src="resto/istockphoto-1056345830-612x612.jpg" alt="Plats">
+              <img src="resto/istockphoto-1227551348-612x612.jpg" alt="Dessert">
+              <img src="resto/istockphoto-1420202578-612x612.jpg" alt="Plats">
+              <img src="resto/istockphoto-2031246450-612x612.jpg" alt="Plats">
+              <img src="resto/stock-photo-negroni-cocktail-crystal-glasses-orange.png" alt="Boisson">
+              <img src="resto/istockphoto-2152018264-612x612.jpg" alt="Entrée">
+              </div>
+              <div class="carousel-buttons">
+        <button id="prevbtn"><i class="fas fa-backward"></i></button>
+        <button id="nextbtn"><i class="fas fa-forward"></i></button>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section round  ">
+      <div class="title has-text-right dav">
+           <h1 class="title has-text-danger"> Envie d'une expérience gourmande ?</h1>
+           <h2 class="subtitle has-text-white-bis">Rencontre avec le chef de la CALE</h2>
+      </div>
+      <div class="columns is-desktop">
+          <div class="column">
+            <figure class="image is-3by2">
+              <img class="is-rounded" src="resto/istockphoto-1299123739-612x612.jpg" />
+            </figure>
+          </div>
+          <div class="column ">
+            <article class="message is-dark">
+              <div class="message-body  has-text-white">
+                <h2 class="subtitle has-text-white-bis">Bienvenue à La Cale!</h2> En tant que chef cuisinier, je suis fier de vous offrir une expérience gourmande unique. Chaque matin, nous recevons des poissons et fruits de mer frais de nos pêcheurs locaux, garantissant la qualité exceptionnelle de nos plats. De la Salade de poulpe tendre à notre Espadon grillé aux légumes, chaque plat est préparé avec des ingrédients soigneusement sélectionnés et une passion pour la perfection culinaire. Nos desserts, comme le Flan au caramel et la Mousse au chocolat, offrent une douceur inoubliable pour conclure votre repas. Venez découvrir l'art de la cuisine maritime à La Cale, où chaque bouchée est une invitation au voyage gustatif.              </div>
+            </article>
+          </div>
+      </div>
+    </section>
+
+    <section class="section is-small has-background-grey-light">
+      <div class="columns is-desktop is-centered">
+        <div class="column is-half">
+            <h1 class="title">Notre position</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d647.9066134118142!2d3.0538318211082953!3d36.73417723909543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x128fad83745c7425%3A0x81a8faabb5ff4cbe!2sRestaurant%20La%20Cale!5e0!3m2!1sfr!2sfr!4v1719315282088!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <%- include ("./partials/info") -%>
+
+    <%- include ("./partials/footer") -%>
+
+  <script src="./JS/index.js"></script>
+</body>
+</html>

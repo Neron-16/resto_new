@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <title>Connexion</title>
+</head>
+<body>
+  <%- include ("./partials/header") -%>
+
+    <section class="section has-background-grey-light">
+        <div class="card">
+            <div class="card-content">
+              <form action="/connexion" method="POST">
+              <div class="content">
+                    <div class="field is-small">
+                        <p class="control">
+                          <input class="input"  name ="email" type="email" placeholder="adresse email">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                          <input class="input" name ="password" type="password" placeholder="Password">
+                        </p>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                          <button class="button is-success" type="submit">
+                            Soumettre
+                          </button>
+                        </p>
+                    </div>
+              </div>
+              </form>
+            </div>
+        </div>
+    </section>
+
+    <%- include ("./partials/footer") %>
+
+    <script src="./JS/index.js"></script>
+</body>
+</html>

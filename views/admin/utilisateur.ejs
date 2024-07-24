@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.1/css/bulma.min.css">
+    <title>utilisateur admin</title>
+</head>
+<body>
+    <section class="hero is-success is-small">      
+        <div class="hero-body">
+          <div class="container has-text-centered">
+          <h1 class="title is-1 has-text-left">Utilisateur</h1>
+          </div>
+          <br>
+          
+      <section class="hero is-white">
+          <div class="hero-body">
+            <div class="table-container">
+              <table class="table is-fullwidth has-background-grey-light">
+                <tbody>
+                  <tr>
+                    <th class="is-light">Adresse email</th>
+                    <th class="is-light">Mot de passe</th>
+                    <th class="is-light">Nom</th>
+                    <th class="is-light">Prenom</th>
+                    <th class="is-light">Role</th>
+                    <th class="is-light">Modifier</th>
+                    <th class="is-light">Supprimer</th>
+                  </tr>
+                  <% newResultat.forEach ((user) => { %>
+                  <tr>
+                  <form action="/admin/utilisateur/change/<%= user.email %>" method="post">
+                       <td><input type="email" name="email" class="input"  value="<%= user.email %>"></td>
+                       <td><input type="password" name="password" class="input" value="<%= user.password %>"></td>
+                       <td><input type="text" name="nom" class="input"  value="<%= user.nom %> "></td>
+                        <td><input type="text" name="prenom" class="input" value="<%= user.prenom %>"></td>
+                       <td>
+                        <select name="role" class="input">
+                          <% if (user.role === 'Administrateur') { %>
+                            <option value="Administrateur">Administrateur</option>
+                            <option value="gerant">Gerant</option>
+                            <option value="serveur">Serveur</option>
+                            <option value="cuisinier">Cuisinier</option>
+                            <option value="aide cuisinier">Aide Cuisinier</option>
+                            <option value="plongeur">Plongeur</option>
+                            <% } else if (user.role === 'gerant') { %>
+                              <option value="gerant">Gerant</option>
+                              <option value="serveur">Serveur</option>
+                              <option value="cuisinier">Cuisinier</option>
+                              <option value="aide cuisinier">Aide Cuisinier</option>
+                              <option value="plongeur">Plongeur</option>
+                              <option value="Administrateur">Administrateur</option>
+                          <% } else if (user.role === 'serveur') { %>
+                            <option value="serveur">Serveur</option>
+                            <option value="cuisinier">Cuisinier</option>
+                            <option value="aide cuisinier">Aide Cuisinier</option>
+                            <option value="plongeur">Plongeur</option>
+                            <option value="Administrateur">Administrateur</option>
+                            <option value="gerant">Gerant</option>
+                          <% } else if (user.role === 'cuisinier') { %>
+                            <option value="cuisinier">Cuisinier</option>
+                            <option value="aide cuisinier">Aide Cuisinier</option>
+                            <option value="plongeur">Plongeur</option>
+                            <option value="Administrateur">Administrateur</option>
+                            <option value="gerant">Gerant</option>
+                            <option value="serveur">Serveur</option>
+                          <% } else if (user.role === 'aide cuisinier') { %>
+                            <option value="aide cuisinier">Aide Cuisinier</option>
+                            <option value="plongeur">Plongeur</option>
+                            <option value="Administrateur">Administrateur</option>
+                            <option value="gerant">Gerant</option>
+                            <option value="serveur">Serveur</option>
+                            <option value="cuisinier">Cuisinier</option>
+                          <% } else if (user.role === 'plongeur') { %>
+                            <option value="plongeur">Plongeur</option>
+                            <option value="Administrateur">Administrateur</option>
+                            <option value="gerant">Gerant</option>
+                            <option value="serveur">Serveur</option>
+                            <option value="cuisinier">Cuisinier</option>
+                            <option value="aide cuisinier">Aide Cuisinier</option>
+                          <% } %>
+                        </select>
+                        </td>
+                        <td><input type="submit" value="modifier" class="button is-warning  "></td> 
+                  </form>
+                  <form action="/admin/utilisateur/delete/<%= user.email %>" method="post">
+                         <td><input type="submit" value="supprimer" class="button is-danger"></td> 
+                  </form>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+              <table class="table is-fullwidth has-background-grey-light">
+                <tbody>
+                  <tr>
+                    <th class="is-light">Adresse email</th>
+                    <th class="is-light">Mot de passe</th>
+                    <th class="is-light">Nom</th>
+                    <th class="is-light">Prenom</th>
+                    <th class="is-light">Role</th>
+                    <th class="is-light">Ajouter</th>
+                  </tr>
+                  <tr>
+                    <form action="/admin/utilisateur/add" method="post">
+                        <td><input type="email" name="email" class="input"  value=""></td>
+                        <td><input type="password" name="password" class="input" value=""></td>
+                        <td><input type="text" name="nom" class="input"  value=" "></td>
+                        <td><input type="text" name="prenom" class="input" value=""></td>
+                    <td>
+                      <select name="role" class="input">
+                        <option value="Administrateur">Administrateur</option>
+                        <option value="Gerant">Gerant</option>
+                        <option value="Serveur">Serveur</option>
+                        <option value="Cuisinier">Cuisinier</option>
+                        <option value="Aide Cuisinier">Aide Cuisinier</option>
+                        <option value="Plongeur">Plongeur</option>
+                      </select>
+                    </td>
+                    <td><input type="submit" value="ajouter" class="button is-info"></td>
+                    </form>
+                  </tr>  
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </section>
+          </div>
+        </div>
+    </section>
+
+    <%- include ("../partials/dashbord.ejs") %>
+</body>
+</html>

@@ -1,0 +1,61 @@
+.logo{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.background{
+    display: flex;
+    height:700px;
+  
+    background-size: 100% 100%;
+    background-image: url("../resto/photo-1579027989536-b7b1f875659b\ \(1\).avif");
+    background-repeat: no-repeat;
+}
+
+.ti{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.ti-1{
+    font-family:fantasy;
+}
+
+.round{
+    height:900px;
+    background-size: 100% 100%;
+    background-image: url("../resto/istockphoto-1175545128-612x612.jpg");
+    background-repeat: no-repeat;
+}
+.dav:first-child{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style:oblique;
+} 
+
+/* carrousel */
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+  }
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-images img {
+    height: 50%;
+    width: 50%;
+    flex-shrink: 0;
+  }
+  .carousel-buttons {
+    position: absolute;
+    top: 45%;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  .carousel-buttons button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #333;
+    cursor: pointer;
+  }
